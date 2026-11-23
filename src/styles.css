@@ -129,6 +129,12 @@ body {
   filter: brightness(1.15);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .key {
+    transition: none;
+  }
+}
+
 .key:active,
 .key.is-pressed {
   transform: translateY(var(--px));
