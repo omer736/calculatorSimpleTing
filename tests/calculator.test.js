@@ -59,6 +59,11 @@ test("trims floating point noise", function () {
   assert.strictEqual(state.current, "0.3");
 });
 
+test("delete removes the last digit typed", function () {
+  const state = Calculator.deleteLast(press(Calculator.createState(), ["1", "2", "3"]));
+  assert.strictEqual(state.current, "12");
+});
+
 test("clear resets everything", function () {
   const state = Calculator.clear();
   assert.deepStrictEqual(state, {
