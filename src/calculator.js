@@ -130,6 +130,7 @@ function equals(state) {
     previous: null,
     operator: null,
     overwrite: true,
+    expression: state.previous + state.operator + state.current,
   };
 }
 

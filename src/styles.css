@@ -162,6 +162,40 @@ body {
   grid-column: span 2;
 }
 
+.tape-panel {
+  margin-top: 18px;
+  padding: 10px;
+  background: var(--cabinet-dark);
+  border: var(--px) solid #000;
+}
+
+.tape-title {
+  margin: 0 0 8px;
+  font-size: 9px;
+  color: var(--amber);
+}
+
+.tape {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-height: 110px;
+  overflow-y: auto;
+}
+
+.tape-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 4px 0;
+  font-size: 9px;
+  color: #8fa3c7;
+}
+
+.tape-result {
+  color: var(--green);
+}
+
 .hint {
   margin: 18px 0 0;
   font-size: 8px;
