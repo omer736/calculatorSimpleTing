@@ -1,0 +1,184 @@
+:root {
+  --bg: #0b0f1a;
+  --cabinet: #1b2236;
+  --cabinet-dark: #0e1322;
+  --ink: #e8f6ff;
+  --green: #4cf08a;
+  --green-dark: #1d6b3f;
+  --amber: #ffcf4d;
+  --red: #ff5d6c;
+  --blue: #5bb8ff;
+  --shadow: #000a14;
+  --px: 4px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  padding: 24px 16px;
+  background:
+    radial-gradient(circle at 50% 0%, #1a2440 0%, var(--bg) 60%),
+    var(--bg);
+  font-family: "Press Start 2P", "Courier New", monospace;
+  color: var(--ink);
+  -webkit-font-smoothing: none;
+  image-rendering: pixelated;
+}
+
+.cabinet {
+  width: 100%;
+  max-width: 420px;
+  padding: 20px;
+  background: var(--cabinet);
+  border: var(--px) solid #000;
+  box-shadow:
+    8px 8px 0 0 var(--shadow);
+}
+
+.title {
+  margin: 0 0 16px;
+  font-size: 18px;
+  line-height: 1.4;
+  text-align: center;
+  color: var(--amber);
+  text-shadow: 3px 3px 0 var(--shadow);
+  letter-spacing: 2px;
+}
+
+/* ---------- screen ---------- */
+
+.screen {
+  position: relative;
+  margin-bottom: 18px;
+  padding: var(--px);
+  background: #000;
+  border: var(--px) solid #39415c;
+  box-shadow: inset 0 0 0 2px #000;
+}
+
+.screen-glass {
+  padding: 14px 12px;
+  min-height: 92px;
+  background: linear-gradient(180deg, #06240f 0%, #04150a 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.history {
+  font-size: 10px;
+  color: var(--green-dark);
+  min-height: 12px;
+  word-break: break-all;
+}
+
+.display {
+  font-size: 26px;
+  color: var(--green);
+  text-shadow: 0 0 10px rgba(76, 240, 138, 0.65);
+  word-break: break-all;
+  text-align: right;
+}
+
+.scanlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.35) 0px,
+    rgba(0, 0, 0, 0.35) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+}
+
+/* ---------- keypad ---------- */
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.key {
+  font-family: inherit;
+  font-size: 14px;
+  padding: 16px 0;
+  color: var(--ink);
+  background: #3a4568;
+  border: var(--px) solid #000;
+  box-shadow: 0 var(--px) 0 0 #202845;
+  cursor: pointer;
+  transition: transform 0.03s linear;
+}
+
+.key:hover {
+  filter: brightness(1.15);
+}
+
+.key:active,
+.key.is-pressed {
+  transform: translateY(var(--px));
+  box-shadow: 0 0 0 0 #202845;
+}
+
+.key:focus-visible {
+  outline: var(--px) solid var(--amber);
+  outline-offset: 2px;
+}
+
+.key-op {
+  background: var(--blue);
+  color: #06203a;
+  box-shadow: 0 var(--px) 0 0 #2e6d9e;
+}
+
+.key-fn {
+  background: var(--red);
+  color: #3a0a10;
+  box-shadow: 0 var(--px) 0 0 #a63745;
+}
+
+.key-eq {
+  background: var(--green);
+  color: #04240f;
+  box-shadow: 0 var(--px) 0 0 #1d6b3f;
+}
+
+.key-wide {
+  grid-column: span 2;
+}
+
+.hint {
+  margin: 18px 0 0;
+  font-size: 8px;
+  line-height: 1.8;
+  text-align: center;
+  color: #6c7a9c;
+}
+
+@media (max-width: 420px) {
+  .title {
+    font-size: 14px;
+  }
+  .display {
+    font-size: 20px;
+  }
+  .key {
+    font-size: 12px;
+    padding: 14px 0;
+  }
+}

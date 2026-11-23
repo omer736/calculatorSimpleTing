@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PIXEL CALC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <main class="cabinet">
+      <h1 class="title">PIXEL CALC</h1>
+
+      <div class="screen">
+        <div class="screen-glass">
+          <div class="history" id="history" aria-hidden="true"></div>
+          <output class="display" id="display" aria-live="polite">0</output>
+        </div>
+        <div class="scanlines" aria-hidden="true"></div>
+      </div>
+
+      <div class="keypad" id="keypad">
+        <button class="key key-fn" data-action="clear">AC</button>
+        <button class="key key-fn" data-action="sign">+/-</button>
+        <button class="key key-fn" data-action="percent">%</button>
+        <button class="key key-op" data-op="/">&divide;</button>
+
+        <button class="key" data-digit="7">7</button>
+        <button class="key" data-digit="8">8</button>
+        <button class="key" data-digit="9">9</button>
+        <button class="key key-op" data-op="*">&times;</button>
+
+        <button class="key" data-digit="4">4</button>
+        <button class="key" data-digit="5">5</button>
+        <button class="key" data-digit="6">6</button>
+        <button class="key key-op" data-op="-">&minus;</button>
+
+        <button class="key" data-digit="1">1</button>
+        <button class="key" data-digit="2">2</button>
+        <button class="key" data-digit="3">3</button>
+        <button class="key key-op" data-op="+">+</button>
+
+        <button class="key key-wide" data-digit="0">0</button>
+        <button class="key" data-action="decimal">.</button>
+        <button class="key key-eq" data-action="equals">=</button>
+      </div>
+
+      <p class="hint">INSERT COIN &mdash; OR JUST USE YOUR KEYBOARD</p>
+    </main>
+
+    <script src="src/calculator.js"></script>
+    <script src="src/app.js"></script>
+  </body>
+</html>
