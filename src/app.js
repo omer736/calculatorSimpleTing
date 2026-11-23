@@ -4,12 +4,20 @@
   const display = document.getElementById("display");
   const history = document.getElementById("history");
   const keypad = document.getElementById("keypad");
+  const tape = document.getElementById("tape");
 
   let state = Calculator.createState();
+  let entries = History.load();
+
+  const shared = History.fromQueryString(window.location.search);
+  if (shared) {
+    entries = History.add(entries, shared.expression, shared.result);
+  }
 
   function render() {
     display.textContent = state.current;
     history.textContent = Calculator.historyText(state);
+    History.render(tape, entries);
   }
 
   function handleAction(action) {
@@ -28,6 +36,10 @@
         break;
       case "equals":
         state = Calculator.equals(state);
+        if (state.expression) {
+          entries = History.add(entries, state.expression, state.current);
+          History.save(entries);
+        }
         break;
       default:
         return;
