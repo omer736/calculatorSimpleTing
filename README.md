@@ -48,3 +48,9 @@ node --test tests/
 ```
 
 Requires Node 18+ (uses the built-in `node:test` runner — no packages to install).
+
+## Accessibility
+
+Every key carries an `aria-label`, the keypad is a labelled `role="group"`, and the
+display is an `aria-live` region, so a screen reader announces each result. Key
+presses respect `prefers-reduced-motion`.
