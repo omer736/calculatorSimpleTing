@@ -151,7 +151,12 @@ function deleteLast(state) {
     return createState();
   }
 
-  return { ...state, current: state.current.slice(0, -1) };
+  const current = state.current.slice(0, -1);
+  return {
+    ...state,
+    current: current === "" || current === "-" ? "0" : current,
+    overwrite: state.operator !== null && state.overwrite,
+  };
 }
 
 function percent(state) {
