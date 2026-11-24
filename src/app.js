@@ -26,6 +26,9 @@
       case "decimal":
         state = Calculator.inputDecimal(state);
         break;
+      case "delete":
+        state = Calculator.deleteLast(state);
+        break;
       case "equals":
         state = Calculator.equals(state);
         break;
@@ -60,6 +63,7 @@
     Escape: "clear",
     c: "clear",
     C: "clear",
+    Backspace: "delete",
     ".": "decimal",
     ",": "decimal",
     "%": "percent",
@@ -90,15 +94,6 @@
       state = Calculator.chooseOperator(state, key);
       render();
       flash('[data-op="' + key + '"]');
-      return;
-    }
-
-    if (key === "Backspace") {
-      state =
-        state.current.length > 1
-          ? { ...state, current: state.current.slice(0, -1) }
-          : { ...state, current: "0" };
-      render();
       return;
     }
 

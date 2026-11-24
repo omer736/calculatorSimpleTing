@@ -145,6 +145,20 @@ function toggleSign(state) {
   return { ...state, current };
 }
 
+/** Remove the last character the user typed. */
+function deleteLast(state) {
+  if (state.current === "ERR") {
+    return createState();
+  }
+
+  const current = state.current.slice(0, -1);
+  return {
+    ...state,
+    current: current === "" || current === "-" ? "0" : current,
+    overwrite: state.operator !== null && state.overwrite,
+  };
+}
+
 function percent(state) {
   if (state.current === "ERR") {
     return state;
@@ -173,6 +187,7 @@ const Calculator = {
   formatResult,
   inputDigit,
   inputDecimal,
+  deleteLast,
   chooseOperator,
   equals,
   toggleSign,
